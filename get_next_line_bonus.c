@@ -12,6 +12,17 @@
 
 #include "get_next_line_bonus.h"
 
+/**
+ * @file get_next_line_bonus.c
+ * @brief Implémentation de la fonction get_next_line bonus.
+ */
+
+/**
+ * @brief Duplique une chaîne de caractères jusqu'au caractère de retour chariot.
+ * 
+ * @param s La chaîne de caractères à dupliquer.
+ * @return La nouvelle chaîne de caractères dupliquée, ou NULL si une erreur survient.
+ */
 char	*ft_strdup_until_carriage_return(char *s)
 {
 	char			*str;
@@ -33,6 +44,15 @@ char	*ft_strdup_until_carriage_return(char *s)
 	return (str);
 }
 
+/**
+ * @brief Extrait une sous-chaîne modifiée d'une chaîne de caractères.
+ * 
+ * @param s La chaîne de caractères d'origine.
+ * @param start Le point de départ de la sous-chaîne.
+ * @param len La longueur de la sous-chaîne.
+ * @param i Le point de départ de la sous-chaîne.
+ * @return La nouvelle sous-chaîne extraite, ou NULL si une erreur survient.
+ */
 char	*ft_substr_modif(char const *s, unsigned int start,
 						size_t len, unsigned int i)
 {
@@ -63,6 +83,13 @@ char	*ft_substr_modif(char const *s, unsigned int start,
 	return (str);
 }
 
+/**
+ * @brief Extrait la partie restante de la chaîne après le caractère de retour chariot.
+ * 
+ * @param reste La chaîne de caractères d'origine.
+ * @param line Pointeur vers la chaîne de caractères qui contiendra la partie extraite.
+ * @return La chaîne de caractères restante après l'extraction.
+ */
 char	*ft_reste(char *reste, char **line)
 {
 	int len;
@@ -73,6 +100,12 @@ char	*ft_reste(char *reste, char **line)
 	return (reste);
 }
 
+/**
+ * @brief Libère la mémoire allouée à une chaîne de caractères.
+ * 
+ * @param s Pointeur vers la chaîne de caractères à libérer.
+ * @return NULL.
+ */
 char	*ft_free(char *s)
 {
 	free(s);
@@ -80,6 +113,13 @@ char	*ft_free(char *s)
 	return (s);
 }
 
+/**
+ * @brief Lit une ligne de texte à partir d'un descripteur de fichier.
+ * 
+ * @param fd Le descripteur de fichier.
+ * @param line Pointeur vers la chaîne de caractères qui contiendra la ligne lue.
+ * @return Le nombre de caractères lus, 0 si la fin du fichier est atteinte, -1 en cas d'erreur.
+ */
 int		get_next_line(int fd, char **line)
 {
 	char		*buf;
@@ -108,3 +148,5 @@ int		get_next_line(int fd, char **line)
 	ft_free(buf);
 	return (res);
 }
+            
+
